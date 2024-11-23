@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="css.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap"
+            rel="stylesheet">
+    </head>
+    <body>
+
+        <div class="items center">
+
+        </div>
+        <div class="cart-box center">
+            <h2>Cart Items</h2>
+        </div>
+
+        <script src="data.js"></script>
+
+        <script>
+
+    const data = JSON.parse(dataProduct);
+    console.log(data);
+
+
+const itemsEl = document.querySelector('.items');
+const cartBoxEL = document.querySelector('.cart-box');
+
+data.forEach(element => {
+    const itemEl = document.createElement('div');
+    itemEl.classList.add('item');
+    
+
+    const imgEl = document.createElement('img');
+    imgEl.src = element.img;
+
+    const productName = document.createElement('h2');
+    productName.classList.add('item__heading');
+    productName.textContent = element.title;
+
+    const productDesc = document.createElement('p');
+    productDesc.classList.add('item__text');
+    productDesc.textContent = element.description;
+
+    const productPrice = document.createElement('p');
+    productPrice.classList.add('item__price');
+    productPrice.textContent = `$${element.price}`;
+
+    const buttonEL = document.createElement('button');
+    buttonEL.classList.add('add-to-cart');
+    buttonEL.setAttribute("id", `${element.id}`);
+    buttonEL.textContent = "Add to Cart";
+
+
+
+
+    itemsEl.appendChild(itemEl);
+    itemEl.appendChild(imgEl);
+    itemEl.appendChild(productName);
+    itemEl.appendChild(productDesc);
+    itemEl.appendChild(productPrice);
+    itemEl.appendChild(buttonEL);
+    
+    
+    
+});
+
+
+function addToCart(productId) {
+ 
+  data.forEach(element => {
+  
+    
+        if (parseInt(element.id) === productId) {
+            
+        const itemEl = document.createElement('div');
+        itemEl.classList.add('item-cart');
+
+
+        const imgEl = document.createElement('img');
+        imgEl.src = element.img;
+        imgEl.classList.add('item-cart__img');
+
+        
+
+        const itemContent = document.createElement('div');
+        itemContent.classList.add('item-cart__content');
+        
+
+        const h3El = document.createElement('h3');
+        h3El.classList.add('item-cart__heading');
+        h3El.textContent = element.title;
+
+        const productDesc = document.createElement('p');
+        productDesc.classList.add('item-cart__text');
+        productDesc.textContent = element.description;
+
+        const priceEl = document.createElement('p');
+        priceEl.classList.add('item-cart__text');
+        priceEl.textContent = `Price: $${element.price}`;
+
+        const delateBut = document.createElement('button');
+        delateBut.classList.add('item-cart__delate');
+        
+        delateBut.setAttribute("id", `${element.id}`)
+        const delImg = document.createElement('img');
+        delImg.classList.add('item-cart__delate_img');
+        delateBut.appendChild(delImg);
+        delImg.src = "img/del.svg";
+        
+
+
+
+        itemEl.appendChild(imgEl);
+        cartBoxEL.appendChild(itemEl);
+        itemEl.appendChild(itemContent);
+        itemContent.appendChild(h3El);
+        itemContent.appendChild(productDesc);
+        itemContent.appendChild(priceEl);
+        itemContent.appendChild(delateBut);
+
+        cartBoxEL.insertAdjacentElement('beforeend', itemEl);
+        }
+ 
+    });
+}
+
+document.addEventListener('click', (event) => {
+    if (event.target &&
+    event.target.classList.contains('add-to-cart')) {
+    const productId = parseInt(event.target.getAttribute('id'), 10);
+    addToCart(productId);
+    
+     
+}}
+
+
+);
+
+
+document.addEventListener('click', (event) => {
+    if (event.target &&
+    event.target.classList.contains('item-cart__delate_img')) {
+    
+    let item = event.target.closest('.item-cart');
+    item.remove();
+}
+});
+
+
+
+
+</script>
+
+    </body>
+</html>
