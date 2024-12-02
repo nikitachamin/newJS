@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+
+
+        // class Animal {
+            
+
+        //     constructor(name){
+        //         this.name = name;
+                
+        //     }
+        //     speak(){
+        //         console.log(`${this.name}  make sound `);
+        //     }
+        // }
+
+        // class Dog extends Animal{
+
+        //     constructor(name, bread){
+        //         super(name);
+        //         this.bread = bread;
+        //     }
+
+        //     fetch(){
+        //         console.log(`Собака ${this.name} принесла мяч`);
+        //     }
+        // }
+
+        // const bobik = new Dog('Бобик','алабай');
+    
+        // bobik.speak();
+        // bobik.fetch();
+
+
+        class Product {
+            constructor(name, price){
+                this.name = name;
+                this.price = price;
+
+            }
+
+        }
+
+        class  ShoppingCart {
+            constructor(customerName, initialTotalCost = 0){
+                this.customerName = customerName;
+                this.totalCost = initialTotalCost;
+                
+            }
+
+            addItem(product, quantity = 1){
+            
+              this.totalCost += product.price * quantity;
+          
+
+            }
+            getCurrentTotalCost(){
+                console.log(`Сейчас товаров в корзине на сумму ${this.totalCost}`);
+            }
+
+            checkout(){
+                console.log(`Заказ для покупателя ${this.customerName}. Общая стоимость заказа ${this.totalCost}. Спасибо за покупку`);
+            }
+        }
+        
+        const newProduct1 = new Product('рубашка', 3000);
+        const newProduct2 = new Product('джинсы', 500);
+        const newProduct3 = new Product('шляпа', 1000);
+        const newShoppingCart = new ShoppingCart('Nikita');
+        newShoppingCart.addItem(newProduct1, 2);
+        newShoppingCart.addItem(newProduct2, 3);
+        newShoppingCart.addItem(newProduct3);
+        newShoppingCart.getCurrentTotalCost();
+        newShoppingCart.checkout();
+
+    </script>
+</body>
+</html>

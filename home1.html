@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+// Нахождение минимального числа в массиве
+// Дан массив const arr = [1, 5, 7, 9]. Используя метод Math.min и оператор
+// распространения (spread operator), найдите минимальное число в массиве. Решение
+// должно быть написано в одной строке.
+// Подсказка: Используйте оператор распространения Spread (...) для преобразования
+// массива в аргументы функции Math.min. Это позволяет найти минимальное значение
+// в массиве в одной строке.
+// const arr = [0, 5, 7, 9];
+
+// console.log(Math.min(...arr));
+    
+
+
+// Создание счетчика
+// Напишите функцию createCounter, которая создает счетчик и возвращает объект с
+// тремя методами: increment, decrement и getValue. Метод increment должен
+// увеличивать значение счетчика на 1, метод decrement должен уменьшать значение
+// счетчика на 1, а метод getValue должен возвращать текущее значение счетчика.
+// Значение счетчика должно быть доступно только через методы объекта, а не
+// напрямую.
+// Подсказка: Функция createCounter возвращает объект с методами для увеличения
+// и уменьшения счетчика. Приватная переменная count доступна только через методы
+// объекта, что обеспечивает инкапсуляцию данных.
+
+
+function createCounter(num) {
+    let counter = num;
+    return {
+        increment: function(arg){
+            counter += arg;
+        },
+        decrement: function(arg){
+            counter -= arg;
+        },
+        getValue: function(){
+            return counter;
+        }
+    }
+    
+}
+
+const calculator = createCounter(10);
+
+calculator.increment(5);
+calculator.decrement(2);
+console.log(calculator.getValue());
+    </script>
+</body>
+</html>
+
+
+

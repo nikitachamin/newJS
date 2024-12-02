@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+
+        <script>
+        // class Person {
+        //     name = "Jonh";
+        //     age = 25;
+        //     gender = "male";
+
+
+        //     constructor(){
+
+        //     }
+
+        //     introduce(){
+        //         console.log(`My name ${this.name} i'm ${this.age} years old and I'm identify as ${this.gender}`);
+        //     }
+        //     changeName(newName) {
+        //         this.name = newName;
+        //     }
+        // }
+        
+        // const PersonNew = new Person;
+        // PersonNew.introduce();
+        // PersonNew.changeName("Nikita");
+        // PersonNew.introduce();
+
+
+        // const Animal = {
+        //     name: '',
+
+        //     eat(){
+        //        console.log(`${this.name} это животное ест`);
+        //     }
+        // }
+
+        // Animal.name = "Гоша";
+        // Animal.eat();
+
+        // const Dog = {
+        //     name: '',
+
+        //     bark(){
+        //        console.log(`${this.name} это животное лает`);
+        //     }
+        // }
+
+       
+
+        // Dog.name = "Шарик";
+        // Dog.eat = Animal.eat;
+        // Dog.eat();
+        // Dog.bark();
+
+
+
+        // const calculator = {
+        //     add(a, b){
+        //         return a+b;
+        //     },
+        //     subtract(a, b){
+        //         return a-b;
+        //     },
+        //     multiply(a, b){
+        //         return a*b;
+        //     }
+
+        // }
+
+        // console.log(calculator.add.call(null, 5, 3)); // Вывод: 8
+        // console.log(calculator.subtract.apply(null, [5, 3])); // Вывод: 2
+        // console.log(calculator.multiply.apply(null, [5, 3])); // Вывод: 8
+
+
+        // class Person  {
+          
+        //   constructor(name, age){
+        //    this.name = name;
+        //    this.age = age;
+        //   }
+
+        //   introduce (){
+        //     console.log(`My name is ${this.name}, I'm ${this.age} old`);
+        //   }
+        // }
+        // const newPerson = new Person("Jonh", 25);
+
+        // newPerson.introduce();
+
+
+       class BankAccount{
+        constructor(accountNumber, balance){
+            this.accountNumber = accountNumber;
+            this.balance = balance;
+        }
+
+        deposit(amount){
+            this.balance = this.balance + amount;
+            return console.log(`Deposited ${amount} into account ${this.accountNumber}. New balance: ${this.balance}`);
+        }
+        withdraw(amount){
+            if (amount > this.balance) {
+                return console.log(`Insufficient funds in account ${this.accountNumber}`);
+            } else {
+                this.balance = this.balance - amount;
+                return console.log(`Withdrawn ${amount} into account ${this.accountNumber}. New balance: ${this.balance}`);
+            }
+           
+        }
+       }
+        const account1 = new BankAccount("1234567890", 1000);
+        account1.deposit(500); // Вывод: Deposited 500 into account 1234567890. New balance: 1500
+        account1.withdraw(200); // Вывод: Withdrawn 200 from account 1234567890. New balance: 1300
+        account1.withdraw(1500); // Вывод: Insufficient funds in account 1234567890
+    </script>
+    </body>
+</html>

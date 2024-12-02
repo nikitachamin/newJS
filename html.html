@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+        // function remove(a) {
+        //     return a.filter((val,index,a) => a.indexOf(val) === index);
+        // }
+        // const a = [1, 2, 3, 2, 4, 1, 5, 7, 7, 9];
+        // console.log(remove(a));
+        // console.log(a);
+
+
+
+        // const getEvenNumbers = (num) => num.filter(function (item) {
+        //     const rema = item % 2
+        //     return rema === 0;
+            
+        // });
+
+          
+        // const a = [1,2,3,4,10,15,16,18];
+        // console.log(getEvenNumbers([1,2,3,4,5,6,7,8,9]));
+        // console.log(getEvenNumbers(a));
+
+
+        // const calculateAvarage = (num) => {
+        //     const sum = num.reduce((acc, item) => acc + item, 0);
+        //     return sum / num.length;
+        // }
+
+        // console.log(calculateAvarage([1,2,3,4,5,6,7,10]));
+
+
+
+        // const capitalaze = (str) => {
+            
+        //     return str
+        //             .split(' ')
+        //             .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        //             .join(' ');
+            
+        // }
+
+        // console.log(capitalaze('hello world nikita chamin'));
+
+
+        // function createCalc(initialValue) {
+        //     let value = initialValue;
+
+        //     return {
+        //         add: function (num) {
+        //             value += num;
+        //         },
+        //         subtrack: function (num) {
+        //             value -= num;
+        //         },
+        //         getValue: function () {
+        //             return value;
+        //         }
+        //     }
+        // }
+
+        // const calc = createCalc(10);
+        
+        // calc.add(5);
+        // calc.subtrack(2);
+        // console.log(calc.getValue());
+
+
+        // function createGreeting(str) {
+        //     return function () {
+        //         console.log(`hello ${str}`);  
+        //     }
+        // }
+
+        // const greeting = createGreeting('Jonh');
+        // greeting();
+        
+       function createPasswordChecker(maxLength) {
+        return function (password) {
+            return password.length < maxLength;
+        }
+        
+       }
+
+
+        const isPasswordValid = createPasswordChecker(8);
+        console.log(isPasswordValid('newpassword')); // Ожидаемый результат:
+        false
+        console.log(isPasswordValid('secret')); // Ожидаемый результат: true
+    </script>
+    </body>
+</html>
